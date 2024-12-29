@@ -13,6 +13,7 @@ const createNewTask = (myTask, categoryTask) => {
   li.appendChild(div);
 
   ul.appendChild(li);
+  document.querySelector("#taskInput").value = "";
 };
 
 const createSpan = (task, categoryTask) => {
