@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Dark Blue To-Do</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <div class="header-content">
+          <h1 class="app-title">My Tasks</h1>
+          <div class="category-select">
+            <select id="categoryDropdown">
+              <option value="all">All</option>
+              <option value="work">Work</option>
+              <option value="personal">Personal</option>
+              <option value="errands">Errands</option>
+            </select>
+          </div>
+        </div>
+      </header>
+
+      <div class="task-input-container">
+        <input type="text" id="taskInput" placeholder="Add a new task..." />
+        <button id="addTaskBtn">+</button>
+      </div>
+
+      <ul class="task-list" id="taskList">
+        <!-- Sample tasks for visualization -->
+        <li data-category="work">
+          <span class="task-name"
+            ><strong class="task-category">[Work]</strong> Finish project
+            report</span
+          >
+          <div class="task-actions">
+            <button class="edit-btn">✏️</button>
+            <button class="delete-btn">🗑</button>
+          </div>
+        </li>
+        <li data-category="personal">
+          <span class="task-name"
+            ><strong class="task-category">[Personal]</strong> Call Mom</span
+          >
+          <div class="task-actions">
+            <button class="edit-btn">✏️</button>
+            <button class="delete-btn">🗑</button>
+          </div>
+        </li>
+        <li data-category="errands">
+          <span class="task-name"
+            ><strong class="task-category">[Errands]</strong> Buy
+            groceries</span
+          >
+          <div class="task-actions">
+            <button class="edit-btn">✏️</button>
+            <button class="delete-btn">🗑</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Your JavaScript file -->
+    <script src="script.js"></script>
+  </body>
+</html>
