@@ -29,8 +29,8 @@ const createSpan = (task, categoryTask) => {
 const createStrong = (ctg) => {
   const strong = document.createElement("strong");
   strong.className = "task-category";
-
-  strong.textContent = `[${ctg}]`;
+  const capitalized = ctg.at(0).toUpperCase() + ctg.substring(1);
+  strong.textContent = `[${capitalized}]`;
 
   return strong;
 };
@@ -99,13 +99,35 @@ taskList.addEventListener("click", () => {
     const taskItem = event.target.parentElement.parentElement;
     taskItem.remove();
   }
+
+  if (event.target.matches(".edit-btn")) {
+    const span = event.target.parentElement.previousElementSibling; // Get the related span
+    editInput(span);
+  }
 });
 
 // Edit button
-const editBtn = document.querySelector(".edit-btn");
 
-editInput = () => {
-  const span = document.querySelector(".task-name");
-  const newTask = (span.innerHTML = `<input type="text">`);
+editInput = (span) => {
+  const inputField = document.createElement("input");
+  inputField.type = "text";
+  const category = createStrong(
+    document.querySelector("#categoryDropdown").value
+  );
+  console.log(category);
+
+  span.innerHTML = "";
+  span.appendChild(category);
+  span.appendChild(inputField);
+
+  inputField.addEventListener("keydown", function (event) {
+    console.log("edited");
+    if (event.key === "Enter") {
+      span.innerHTML = "";
+      const newTaskName = inputField.value.trim();
+      span.appendChild(category);
+      span.appendChild(document.createTextNode(newTaskName));
+    }
+  });
+  inputField.focus();
 };
-editBtn.addEventListener("click", editInput);
